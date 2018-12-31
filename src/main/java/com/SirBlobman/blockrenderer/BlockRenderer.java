@@ -301,9 +301,14 @@ public class BlockRenderer {
                         int loreWidth = fontRenderer.getStringWidth(lore);
                         if(loreWidth > width) width = loreWidth;
                     }
-                    
+
                     GlStateManager.translate(((scaledWidth - width / 2.0D) - 12.0D), (scaledHeight + 30.0D), 0.0D);
                     Rendering.drawHoveringText(loreList, 0, 0, fontRenderer);
+
+                    GlStateManager.translate(-((scaledWidth - width / 2.0D) - 12.0D), -(scaledHeight + 30.0D), 0.0D);
+                    GlStateManager.translate(scaledWidth - 40.0D, scaledHeight - 120.0D, 0.0D);
+                    GlStateManager.scale(5.0D, 5.0D, 0.0D);
+                    minecraft.getRenderItem().renderItemAndEffectIntoGUI(stack, 0, 0);
                 }
             GlStateManager.popMatrix();
         GlStateManager.popMatrix();
